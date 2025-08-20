@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C&C Autobody Shop - Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("royzar97305@gmail.com"); })(); // Replace with your EmailJS User ID
+  </script>
+</head>
+<body>
+  
+<header>
+  <h1>C&C Autobody Shop</h1>
+  <p>Car Restoration & Repair Experts</p>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="our-work.html">Our Work</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="name" name="from_name" placeholder="Your Name" required>
+      <input type="email" id="email" name="reply_to" placeholder="Your Email" required>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Email</button>
+    </form>
+    <p style="margin-top:1rem;">📞 Contact Number: <strong>[503-385-7083]</strong></p>
+<p style="margin-top:1rem;"> Address: <strong>[6842 Portland Road NE Salem, Oregon 97305 United States]</strong></p>
+  </section>
+
+  </section>
+  <footer>
+    <p>&copy; 2025 C&C Autobody Shop. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.send("service_i7su1gk", "template_a6f62vg", {
+        from_name: document.getElementById('name').value,
+        reply_to: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      }).then(function(response) {
+          alert("Message sent successfully!");
+      }, function(error) {
+          alert("Failed to send message. Please try again later.");
+      });
+    });
+  </script>
+</body>

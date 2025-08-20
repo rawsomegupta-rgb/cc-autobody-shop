@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C&C Autobody Shop</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; }
+    header { background: #111; color: #fff; padding: 1rem; text-align: center; }
+    nav { display: flex; justify-content: center; background: #222; }
+    nav a { color: #fff; padding: 1rem; text-decoration: none; }
+    nav a:hover { background: #444; }
+    .hero { text-align: center; padding: 2rem; background: #ddd; }
+    .hero img { width: 80%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; padding: 2rem; }
+    .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .contact { padding: 2rem; max-width: 600px; margin: auto; }
+    form { display: flex; flex-direction: column; }
+    input, textarea { margin-bottom: 1rem; padding: 0.8rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    button { padding: 0.8rem; background: #111; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #333; }
+    footer { background: #111; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
+  <!-- Load EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+    })();
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>C&C Autobody Shop</h1>
+    <p>Car Restoration & Repair Experts</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#our-work">Our Work</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <h2>Welcome to C&C Autobody Shop</h2>
+    <p>We bring classic cars back to life with precision and passion.</p>
+    <img src="car-restored-sample.jpg" alt="Restored Car">
+  </section>
+
+  <!-- Our Work Section -->
+  <section id="our-work">
+    <h2 style="text-align:center; margin-top:2rem;">Our Work</h2>
+    <div class="gallery">
+      <img src="project1.jpg" alt="Restoration Project 1">
+      <img src="project2.jpg" alt="Restoration Project 2">
+      <img src="project3.jpg" alt="Restoration Project 3">
+      <img src="project4.png" alt="Restoration Project 4">
+      <img src="project5.png" alt="Restoration Project 5">
+
+      <!-- Add more images as needed -->
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="name" name="from_name" placeholder="Your Name" required>
+      <input type="email" id="email" name="reply_to" placeholder="Your Email" required>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Email</button>
+    </form>
+    <p style="margin-top:1rem;">📞 Contact Number: <strong>[ROY:5033857083]</strong></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 C&C Autobody Shop. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.send("service_i7su1gk ", "template_a6f62vg", {
+        from_name: document.getElementById('name').value,
+        reply_to: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      }).then(function(response) {
+          alert("Message sent successfully!");
+      }, function(error) {
+          alert("Failed to send message. Please try again later.");
+      });
+    });
+  </script>
+
+</body>
+</html>
